@@ -1,5 +1,5 @@
 import React from 'react';
-import { PenTool, ShieldCheck, Cpu, Gem, Award, ArrowUpRight } from 'lucide-react';
+import { PenTool, ShieldCheck, Cpu, Gem, Award, Users, Target, ShieldAlert, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data';
@@ -94,34 +94,57 @@ export default function AboutSection({ language }: AboutSectionProps) {
           <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
             <motion.div variants={itemVariants} className="space-y-4">
               <div className="inline-flex items-center space-x-2 text-xs font-mono text-gold-400 uppercase tracking-widest bg-gold-400/5 border border-gold-400/20 px-3 py-1 rounded-full">
-                <span>{t.aboutIntro}</span>
+                <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+                <span>{language === 'FR' ? 'QUI SOMMES-NOUS' : 'ABOUT US'}</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight text-neutral-100 light:text-neutral-900 leading-tight">
                 {language === 'FR' 
-                  ? 'L’excellence d’un héritage souverain' 
-                  : 'The excellence of a sovereign legacy'}
+                  ? 'Conception et Fabrication de Haute Joaillerie' 
+                  : 'Design & Fabrication of High Fine Jewelry'}
               </h2>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-6 text-neutral-400 light:text-neutral-600 text-sm font-sans leading-relaxed">
-              <p>{t.aboutParagraph1}</p>
-              <p>{t.aboutParagraph2}</p>
-              <p>
+              <p className="font-serif text-lg text-neutral-200 light:text-neutral-800 leading-relaxed italic">
                 {language === 'FR'
-                  ? 'De la sélection rigoureuse des gemmes précieuses dans les rivières de l’Est, au polissage final dans notre atelier prestigieux, chaque création DollarD porte l’estampille de la rareté absolue.'
-                  : 'From the painstaking selection of precious gems in the rivers of East Cameroon, to the final polishing in our prestigious workshop, every DollarD creation bears the seal of absolute rarity.'}
+                  ? 'Dollars bijoux, situé à Douala avec un espace de distribution à Yaoundé, est une structure d’excellence de fabrication de bijoux et d’accessoires personnalisés.'
+                  : 'Dollars Bijoux, located in Douala with a distribution showroom in Yaounde, is a premier workshop specializing in bespoke jewelry and personalized accessories.'}
               </p>
+              
+              <div className="p-5 bg-neutral-900/50 light:bg-stone-100 rounded-xl border border-neutral-800 light:border-neutral-200 space-y-3">
+                <h3 className="font-serif text-sm uppercase tracking-wider text-gold-400 font-semibold flex items-center space-x-2">
+                  <span className="w-2 h-2 rounded-full bg-gold-400" />
+                  <span>{language === 'FR' ? 'Le Pouvoir de l’Acier Inoxydable 316L' : 'The Power of 316L Stainless Steel'}</span>
+                </h3>
+                <p className="text-xs">
+                  {language === 'FR'
+                    ? 'Nos créations sont principalement fabriquées à base d’acier inoxydable 316L, une matière dotée d’un potentiel inestimable : ultra-robuste, hautement résistante à l’usure du temps ainsi qu’aux rigueurs du climat africain. Entièrement hypoallergénique, elle ne cause aucune réaction cutanée, ce qui en fait le compagnon idéal de toutes les générations — du nouveau-né aux personnes du deuxième âge.'
+                    : 'Our creations are primarily crafted from premium 316L stainless steel, an exceptional alloy of supreme potential: ultra-robust, highly resistant to wear over time, and unaffected by equatorial climates. It is completely hypoallergenic, making it perfect for everyone from newborns to elders.'}
+                </p>
+              </div>
+
+              <div className="p-5 bg-neutral-900/50 light:bg-stone-100 rounded-xl border border-neutral-800 light:border-neutral-200 space-y-3">
+                <h3 className="font-serif text-sm uppercase tracking-wider text-gold-400 font-semibold flex items-center space-x-2">
+                  <Target className="w-4 h-4 text-gold-400" />
+                  <span>{language === 'FR' ? 'Notre Objectif' : 'Our Objective'}</span>
+                </h3>
+                <p className="text-xs">
+                  {language === 'FR'
+                    ? 'Dollars bijoux naît de la nécessité d’innover dans le secteur de la joaillerie en Afrique. Nous nous fixons pour mission d’apporter des solutions concrètes en matière de conception de bijoux et accessoires personnalisés, en garantissant un rapport qualité-prix exceptionnel qui correspond à la majorité des bourses.'
+                    : 'Dollars Bijoux was founded on the necessity to innovate the African jewelry sector. We aim to deliver concrete solutions in the design of custom jewelry and personalized accessories, maintaining an exceptional quality-to-price ratio accessible to everyone.'}
+                </p>
+              </div>
             </motion.div>
 
             {/* Cameroon Signature Quote */}
             <motion.div variants={itemVariants} className="border-l-2 border-gold-500 pl-6 py-2 bg-gradient-to-r from-gold-500/5 to-transparent">
               <p className="font-serif italic text-neutral-300 light:text-neutral-700 text-base">
                 {language === 'FR'
-                  ? '« Nous ne créons pas seulement des objets de luxe ; nous forgons les reliques de notre histoire. »'
-                  : '“We do not merely create luxury objects; we forge the relics of our history.”'}
+                  ? '« Nous démocratisons le prestige en Afrique avec des créations éternelles personnalisées à votre image. »'
+                  : '“We democratize prestige in Africa with eternal creations custom-tailored to your unique soul.”'}
               </p>
               <span className="text-[10px] font-mono tracking-widest text-gold-400 uppercase mt-2 block">
-                — DollarD, Directeur de la Maison
+                — M. SIELINOU NGAMENI Clotaire Remy, Promoteur DollarD
               </span>
             </motion.div>
           </div>
@@ -172,6 +195,102 @@ export default function AboutSection({ language }: AboutSectionProps) {
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        {/* Specialized Expert Team section */}
+        <motion.div 
+          variants={containerVariants}
+          className="mt-28 space-y-12"
+        >
+          <motion.div variants={itemVariants} className="text-center space-y-3">
+            <span className="text-[10px] font-mono tracking-widest text-gold-400 uppercase">
+              {language === 'FR' ? "L'EXCELLENCE HUMAINE" : 'HUMAN EXCELLENCE'}
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl text-neutral-100 light:text-neutral-900 tracking-tight">
+              {language === 'FR' ? "Une Équipe d'Experts à Votre Service" : 'A Team of Dedicated Experts'}
+            </h3>
+            <p className="text-xs font-sans text-neutral-400 light:text-neutral-600 max-w-xl mx-auto leading-relaxed">
+              {language === 'FR'
+                ? "Chaque création Dollars Bijoux est le fruit d'une synergie d'expertises, orchestrée par des passionnés de la joaillerie moderne."
+                : "Each Dollars Bijoux creation is the result of deep expertise synergy, orchestrated by modern jewelry aficionados."}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Clotaire Remy SIELINOU NGAMENI */}
+            <motion.div 
+              variants={itemVariants}
+              className="p-8 bg-neutral-900/40 border border-neutral-800 rounded-xl hover:border-gold-500/40 hover:bg-neutral-900 transition-all duration-300 relative light:bg-white light:border-neutral-200 light:hover:border-gold-500 text-center"
+            >
+              <div className="w-16 h-16 mx-auto rounded-full bg-gold-400/10 flex items-center justify-center border border-gold-400/20 mb-6">
+                <Users className="w-6 h-6 text-gold-400" />
+              </div>
+              <h4 className="font-serif text-lg text-neutral-100 light:text-neutral-900 font-semibold">
+                M. SIELINOU NGAMENI Clotaire Remy
+              </h4>
+              <span className="text-[11px] font-mono tracking-widest text-gold-400 uppercase block mt-2 mb-4">
+                {language === 'FR' ? 'Promoteur & Chef de Projet' : 'Founder & Project Director'}
+              </span>
+              <p className="text-xs text-neutral-400 light:text-neutral-600 leading-relaxed">
+                {language === 'FR'
+                  ? "Visionnaire et stratège, il coordonne la création et l'innovation de la joaillerie d'acier inoxydable 316L en Afrique."
+                  : "Visionary and strategist, coordinating the creation and innovation of 316L stainless steel jewelry in Africa."}
+              </p>
+            </motion.div>
+
+            {/* Ingride DEMBI */}
+            <motion.div 
+              variants={itemVariants}
+              className="p-8 bg-neutral-900/40 border border-neutral-800 rounded-xl hover:border-gold-500/40 hover:bg-neutral-900 transition-all duration-300 relative light:bg-white light:border-neutral-200 light:hover:border-gold-500 text-center"
+            >
+              <div className="w-16 h-16 mx-auto rounded-full bg-gold-400/10 flex items-center justify-center border border-gold-400/20 mb-6">
+                <Users className="w-6 h-6 text-gold-400" />
+              </div>
+              <h4 className="font-serif text-lg text-neutral-100 light:text-neutral-900 font-semibold">
+                Mlle. Ingride DEMBI
+              </h4>
+              <span className="text-[11px] font-mono tracking-widest text-gold-400 uppercase block mt-2 mb-4">
+                {language === 'FR' ? 'Responsable à Yaoundé' : 'Yaoundé Showroom Manager'}
+              </span>
+              <p className="text-xs text-neutral-400 light:text-neutral-600 leading-relaxed">
+                {language === 'FR'
+                  ? "Dirige la relation client d'élite et gère l'espace de distribution et de présentation privée à Yaoundé."
+                  : "Leads elite client relations and manages our premium distribution and private viewing space in Yaounde."}
+              </p>
+            </motion.div>
+
+            {/* TEINKELA Dimitri */}
+            <motion.div 
+              variants={itemVariants}
+              className="p-8 bg-neutral-900/40 border border-neutral-800 rounded-xl hover:border-gold-500/40 hover:bg-neutral-900 transition-all duration-300 relative light:bg-white light:border-neutral-200 light:hover:border-gold-500 text-center"
+            >
+              <div className="w-16 h-16 mx-auto rounded-full bg-gold-400/10 flex items-center justify-center border border-gold-400/20 mb-6">
+                <Users className="w-6 h-6 text-gold-400" />
+              </div>
+              <h4 className="font-serif text-lg text-neutral-100 light:text-neutral-900 font-semibold">
+                M. TEINKELA Dimitri
+              </h4>
+              <span className="text-[11px] font-mono tracking-widest text-gold-400 uppercase block mt-2 mb-4">
+                {language === 'FR' ? "Chef d'Atelier" : 'Workshop Master Craftsman'}
+              </span>
+              <p className="text-xs text-neutral-400 light:text-neutral-600 leading-relaxed">
+                {language === 'FR'
+                  ? "Orfèvre en chef, expert de la taille de précision et du façonnage haute technicité de l'acier 316L."
+                  : "Master goldsmith, expert in high-precision carving and the technical hand-finishing of 316L alloy."}
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div 
+            variants={itemVariants}
+            className="p-5 border border-dashed border-gold-400/30 rounded-xl bg-gold-400/5 text-center"
+          >
+            <p className="text-xs font-sans text-neutral-300 light:text-neutral-700">
+              {language === 'FR'
+                ? "💡 Notre équipe s'appuie également sur un personnel d'appui hautement qualifié, mobilisé avec réactivité en fonction du volume de vos commandes."
+                : "💡 Our core team is also supported by a selected pool of high-skilled craftsmen, scaled in response to custom order volumes."}
+            </p>
+          </motion.div>
         </motion.div>
 
       </motion.div>

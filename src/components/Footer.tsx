@@ -95,17 +95,33 @@ export default function Footer({ language }: FooterProps) {
               Contact
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li className="flex items-center space-x-2.5">
-                <MapPin className="w-4 h-4 text-gold-400 shrink-0" />
-                <span>Yaoundé, Cameroon</span>
+              <li className="flex items-start space-x-2.5">
+                <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="block text-neutral-300 font-semibold">Yaoundé Showroom:</span>
+                  <span className="block text-[11px] text-neutral-500 leading-normal">Carrefour intendance – avenue Kennedy, montée Camer-co, immeuble Double-T Créative</span>
+                </div>
               </li>
-              <li className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-gold-400 shrink-0" />
-                <span>(+237) 600 000 000</span>
+              <li className="flex items-start space-x-2.5">
+                <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span className="block text-neutral-300 font-semibold">Douala Atelier:</span>
+                  <span className="block text-[11px] text-neutral-500 leading-normal">Akwa, carrefour équipement (BELLE ET RONDE), 3ème étage</span>
+                </div>
               </li>
-              <li className="flex items-center space-x-2.5">
+              <li className="flex flex-col space-y-1.5 pt-1.5 border-t border-neutral-900/50">
+                <div className="flex items-center space-x-2.5">
+                  <Phone className="w-4 h-4 text-gold-400 shrink-0" />
+                  <span className="text-neutral-300 font-mono">(+237) 6 94 57 76 71</span>
+                </div>
+                <div className="flex items-center space-x-2.5">
+                  <Phone className="w-4 h-4 text-gold-400 shrink-0" />
+                  <span className="text-neutral-300 font-mono">(+237) 675 429 470</span>
+                </div>
+              </li>
+              <li className="flex items-center space-x-2.5 pt-1.5">
                 <Mail className="w-4 h-4 text-gold-400 shrink-0" />
-                <span>concierge@dollardbijoux.com</span>
+                <span>contact@dollarsbijoux.com</span>
               </li>
             </ul>
           </div>

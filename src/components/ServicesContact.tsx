@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Phone, Mail, Clock, HelpCircle, Check, ChevronDown, MessageSquare } from 'lucide-react';
+import { Calendar, Phone, Mail, Clock, HelpCircle, Check, ChevronDown, MessageSquare, MapPin, Facebook, Instagram } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data';
@@ -234,26 +234,40 @@ export default function ServicesContact({ language, prefilledProduct, onClearPre
             )}
 
             {/* Live direct link with WhatsApp */}
-            <div className="flex flex-col sm:flex-row items-center justify-between p-5 border border-dashed border-gold-400/30 rounded-xl bg-gold-400/5">
+            <div className="flex flex-col sm:flex-row items-center justify-between p-5 border border-dashed border-gold-400/30 rounded-xl bg-gold-400/5 light:bg-stone-100/50">
               <div className="flex items-center space-x-3 mb-4 sm:mb-0">
-                <div className="p-2.5 rounded-full bg-emerald-500 text-neutral-950">
+                <div className="p-2.5 rounded-full bg-emerald-500 text-neutral-950 shrink-0">
                   <MessageSquare className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono text-neutral-400 uppercase block">Instant Service</span>
-                  <span className="font-serif text-sm tracking-wide block text-neutral-200">
-                    {t.whatsappConsult}
+                  <span className="text-[10px] font-mono text-neutral-400 uppercase block">{language === 'FR' ? 'Service Instantané' : 'Instant Service'}</span>
+                  <span className="font-serif text-sm tracking-wide block text-neutral-200 light:text-neutral-800">
+                    {language === 'FR' ? 'Échangez en direct avec nos conseillers' : 'Chat live with our private advisors'}
                   </span>
+                  <div className="mt-1 text-xs text-neutral-400 light:text-neutral-500 flex flex-col sm:flex-row sm:gap-3">
+                    <span>📞 +237 6 94 57 76 71</span>
+                    <span>📞 +237 675 429 470</span>
+                  </div>
                 </div>
               </div>
-              <a
-                href="https://wa.me/237600000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-sans text-xs uppercase tracking-widest font-semibold rounded-lg flex items-center space-x-2 transition-all"
-              >
-                <span>WhatsApp (+237)</span>
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2 shrink-0 w-full sm:w-auto">
+                <a
+                  href="https://wa.me/237694577671"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-sans text-xs uppercase tracking-widest font-semibold rounded-lg flex items-center justify-center space-x-1.5 transition-all"
+                >
+                  <span>WhatsApp 1</span>
+                </a>
+                <a
+                  href="https://wa.me/237675429470"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 light:bg-stone-100 light:hover:bg-stone-200 light:text-neutral-800 text-white font-sans text-xs uppercase tracking-widest font-semibold rounded-lg flex items-center justify-center space-x-1.5 transition-all"
+                >
+                  <span>WhatsApp 2</span>
+                </a>
+              </div>
             </div>
 
           </motion.div>
@@ -314,6 +328,163 @@ export default function ServicesContact({ language, prefilledProduct, onClearPre
 
           </motion.div>
 
+        </div>
+
+        {/* Physical Showrooms & Open Hours Map Section */}
+        <hr className="border-neutral-900 light:border-neutral-200 my-16" />
+
+        <div className="space-y-12">
+          <div className="text-center space-y-3">
+            <span className="text-[10px] font-mono tracking-widest text-gold-400 uppercase">
+              {language === 'FR' ? 'NOS BOUTIQUES & ATELIERS' : 'OUR SHOWROOMS & WORKSHOPS'}
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl text-neutral-100 light:text-neutral-900 tracking-tight">
+              {language === 'FR' ? 'Venez Nous Visiter au Cameroun' : 'Visit Our Physical Locations'}
+            </h3>
+            <p className="text-xs font-sans text-neutral-400 light:text-neutral-600 max-w-xl mx-auto leading-relaxed">
+              {language === 'FR'
+                ? 'Pour une consultation exclusive ou pour retirer vos pièces personnalisées, nos espaces d’accueil de prestige vous ouvrent leurs portes.'
+                : 'For a bespoke consultation or to pick up your customized creations, visit our private spaces of distinction.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Yaoundé Card */}
+            <div className="p-6 bg-neutral-900/40 border border-neutral-900 light:bg-white light:border-neutral-200 rounded-xl space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-lg bg-gold-400/10 flex items-center justify-center border border-gold-400/20">
+                  <MapPin className="w-5 h-5 text-gold-400" />
+                </div>
+                <h4 className="font-serif text-lg text-neutral-100 light:text-neutral-900 font-semibold">
+                  {language === 'FR' ? 'Yaoundé Showroom' : 'Yaounde Showroom'}
+                </h4>
+                <p className="text-xs text-neutral-400 light:text-neutral-600 leading-relaxed font-sans">
+                  <strong>{language === 'FR' ? 'Localisation : ' : 'Location: '}</strong>
+                  Yaoundé, Carrefour intendance – avenue Kennedy, montée Camer-co, immeuble Double-T Créative.
+                </p>
+                <p className="text-[11px] font-mono text-gold-400">
+                  👤 {language === 'FR' ? 'Responsable : Mlle. Ingride DEMBI' : 'Manager: Miss Ingride DEMBI'}
+                </p>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/qi1yiBRyq8xxqKqf8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 text-xs font-mono text-gold-400 hover:text-gold-300 flex items-center space-x-1 uppercase tracking-wider"
+              >
+                <span>{language === 'FR' ? 'Voir sur Google Maps' : 'View on Google Maps'}</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            {/* Douala Card */}
+            <div className="p-6 bg-neutral-900/40 border border-neutral-900 light:bg-white light:border-neutral-200 rounded-xl space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-lg bg-gold-400/10 flex items-center justify-center border border-gold-400/20">
+                  <MapPin className="w-5 h-5 text-gold-400" />
+                </div>
+                <h4 className="font-serif text-lg text-neutral-100 light:text-neutral-900 font-semibold">
+                  {language === 'FR' ? 'Douala Atelier Principal' : 'Douala Main Workshop'}
+                </h4>
+                <p className="text-xs text-neutral-400 light:text-neutral-600 leading-relaxed font-sans">
+                  <strong>{language === 'FR' ? 'Localisation : ' : 'Location: '}</strong>
+                  Douala, Akwa, carrefour équipement (Prêt à porter BELLE ET RONDE), 3ème étage.
+                </p>
+                <p className="text-[11px] font-mono text-gold-400">
+                  👤 {language === 'FR' ? "Chef d'Atelier : M. TEINKELA Dimitri" : 'Workshop Master: Mr. TEINKELA Dimitri'}
+                </p>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/qi1yiBRyq8xxqKqf8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 text-xs font-mono text-gold-400 hover:text-gold-300 flex items-center space-x-1 uppercase tracking-wider"
+              >
+                <span>{language === 'FR' ? 'Voir sur Google Maps' : 'View on Google Maps'}</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            {/* Hours and Socials Card */}
+            <div className="p-6 bg-neutral-900/40 border border-neutral-900 light:bg-white light:border-neutral-200 rounded-xl space-y-6">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-lg bg-gold-400/10 flex items-center justify-center border border-gold-400/20">
+                  <Clock className="w-5 h-5 text-gold-400" />
+                </div>
+                <h4 className="font-serif text-lg text-neutral-100 light:text-neutral-900 font-semibold">
+                  {language === 'FR' ? "Horaires d'Ouverture" : 'Opening Hours'}
+                </h4>
+                <ul className="text-xs space-y-1.5 text-neutral-400 light:text-neutral-600 font-mono">
+                  <li className="flex justify-between border-b border-neutral-800/50 light:border-neutral-100 pb-1">
+                    <span>{language === 'FR' ? 'Lundi — Vendredi' : 'Monday — Friday'}</span>
+                    <span className="text-neutral-200 light:text-neutral-800">08:00 — 17:00</span>
+                  </li>
+                  <li className="flex justify-between border-b border-neutral-800/50 light:border-neutral-100 pb-1">
+                    <span>{language === 'FR' ? 'Samedi' : 'Saturday'}</span>
+                    <span className="text-neutral-200 light:text-neutral-800">09:00 — 17:00</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>{language === 'FR' ? 'Dimanche' : 'Sunday'}</span>
+                    <span className="text-red-400">{language === 'FR' ? 'Fermé' : 'Closed'}</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Real Social Links */}
+              <div className="space-y-2">
+                <span className="text-[9px] font-mono tracking-widest text-neutral-500 uppercase block">
+                  {language === 'FR' ? 'RÉSEAUX SOCIAUX' : 'SOCIAL CHANNELS'}
+                </span>
+                <div className="flex gap-3">
+                  <a
+                    href="https://web.facebook.com/DollarsbijouxAfrique/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-neutral-950 border border-neutral-800 light:bg-stone-100 light:border-neutral-200 hover:border-gold-400 rounded-lg text-neutral-400 hover:text-gold-400 transition-colors"
+                    title="Facebook"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/dollars_bijoux/?hl=fr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-neutral-950 border border-neutral-800 light:bg-stone-100 light:border-neutral-200 hover:border-gold-400 rounded-lg text-neutral-400 hover:text-gold-400 transition-colors"
+                    title="Instagram"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@dollars_bijoux"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-neutral-950 border border-neutral-800 light:bg-stone-100 light:border-neutral-200 hover:border-gold-400 rounded-lg text-neutral-400 hover:text-gold-400 transition-colors flex items-center justify-center"
+                    title="TikTok"
+                  >
+                    <span className="font-mono text-[10px] font-bold leading-none">🎵</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Google Map embed card */}
+          <div className="p-1 border border-neutral-900 bg-neutral-900/10 light:bg-stone-100/50 light:border-neutral-200 rounded-2xl overflow-hidden shadow-xl">
+            <div className="w-full h-[300px] rounded-xl overflow-hidden bg-neutral-900 relative">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.3642398433!2d11.512039!3d3.864215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bcf7b2fb0a617%3A0xe54e195fcf47ee12!2sKennedy%20Avenue%2C%20Yaound%C3%A9%2C%20Cameroon!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                className="w-full h-full border-0 grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Maison Dollars Bijoux Location"
+              />
+              <div className="absolute top-4 left-4 p-3 bg-neutral-950/95 backdrop-blur border border-gold-400/30 rounded-lg flex items-center space-x-2.5 shadow-2xl pointer-events-none">
+                <div className="w-2 h-2 rounded-full bg-gold-400 animate-ping" />
+                <span className="font-serif text-[11px] uppercase tracking-widest text-gold-400 font-bold">Dollars Bijoux - Yaoundé / Douala</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </motion.div>
