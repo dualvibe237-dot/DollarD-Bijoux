@@ -1,0 +1,6 @@
+{
+  "name": "DollarD Bijoux",
+  "description": "Maison de haute horlogerie et joaillerie d'exception basée au Cameroun, à vocation internationale.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+@variant light (:where(.light) &);
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cinzel", "Playfair Display", Georgia, serif;
+  --font-mono: "Fira Code", monospace;
+  
+  --color-gold-50: #fbf7ec;
+  --color-gold-100: #f4ebd1;
+  --color-gold-200: #e7d4a4;
+  --color-gold-300: #dab974;
+  --color-gold-400: #cd9f4d;
+  --color-gold-500: #c18833;
+  --color-gold-600: #a76e27;
+  --color-gold-700: #87541f;
+  --color-gold-800: #6a401b;
+  --color-gold-900: #553118;
+  --color-gold-950: #30190b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+  
+  body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  /* Custom high-end scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0d0d;
+  }
+  .light ::-webkit-scrollbar-track {
+    background: #fbfbfb;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c18833;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a76e27;
+  }
+}
+
+/* Luxury animations & keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 25s linear infinite;
+}
+
+/* Shimmering gold particles background animation */
+@keyframes gold-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(-45deg, #090909, #120f0a, #1a150c, #0a0a0a);
+  background-size: 400% 400%;
+  animation: gold-drift 15s ease infinite;
+}
+
+.light .gold-gradient-bg {
+  background: linear-gradient(-45deg, #fcfbf9, #f7f3eb, #efe9db, #fbfaf8);
+  background-size: 400% 400%;
+  animation: gold-drift 15s ease infinite;
+}
+
+/* Floating gold dust particles */
+@keyframes particle-up {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(30px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.gold-particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(218, 185, 116, 0.8) 0%, rgba(193, 136, 51, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle-up 20s linear infinite;
+}
+
+/* Spotlight glow utility */
+.spotlight-glow {
+  background: radial-gradient(circle at center, rgba(193, 136, 51, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.light .spotlight-glow {
+  background: radial-gradient(circle at center, rgba(193, 136, 51, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* ==========================================================================
+   PERFECT RESPONSIVE & MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Modern CSS Clamp Utilities for fluid, responsive typography, gaps and margins */
+@theme {
+  --spacing-fluid-py: clamp(3.5rem, 8vw, 6.5rem);
+  --spacing-fluid-my: clamp(2.5rem, 6vw, 5rem);
+  --spacing-fluid-gap: clamp(1rem, 4vw, 2rem);
+}
+
+.fluid-section-py {
+  padding-top: clamp(3.5rem, 8vw, 6.5rem) !important;
+  padding-bottom: clamp(3.5rem, 8vw, 6.5rem) !important;
+}
+
+.fluid-mb-lg {
+  margin-bottom: clamp(2rem, 5vw, 4.5rem) !important;
+}
+
+.fluid-mb-md {
+  margin-bottom: clamp(1.25rem, 3vw, 2.5rem) !important;
+}
+
+.fluid-gap {
+  gap: clamp(1rem, 4vw, 2.5rem) !important;
+}
+
+.fluid-h1 {
+  font-size: clamp(2.25rem, 5vw + 1rem, 4.5rem) !important;
+  line-height: 1.15 !important;
+}
+
+.fluid-h2 {
+  font-size: clamp(1.75rem, 3.5vw + 0.5rem, 3rem) !important;
+  line-height: 1.25 !important;
+}
+
+.fluid-h3 {
+  font-size: clamp(1.2rem, 1.5vw + 0.4rem, 1.75rem) !important;
+  line-height: 1.35 !important;
+}
+
+@media (max-width: 640px) {
+  /* 1. Global Section Spacing Optimization on Smartphone with Fluid Units */
+  section, .section-container {
+    padding-top: clamp(2.5rem, 7vw, 4rem) !important;
+    padding-bottom: clamp(2.5rem, 7vw, 4rem) !important;
+    margin-top: clamp(1rem, 3vw, 2rem) !important;
+    margin-bottom: clamp(1rem, 3vw, 2rem) !important;
+  }
+
+  /* 2. Compact container layout and fluid side margins to prevent overflows */
+  .container, .max-w-7xl, .max-w-6xl, .max-w-5xl {
+    padding-left: clamp(1rem, 4vw, 1.5rem) !important;
+    padding-right: clamp(1rem, 4vw, 1.5rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .px-6, .px-8, .px-12 {
+    padding-left: clamp(1rem, 4vw, 1.25rem) !important;
+    padding-right: clamp(1rem, 4vw, 1.25rem) !important;
+  }
+
+  /* 3. Fluid Gap adjustments */
+  .gap-8, .gap-10, .gap-12, .fluid-gap {
+    gap: clamp(1rem, 4vw, 1.75rem) !important;
+  }
+
+  /* 4. Resizing display typography to prevent ugly line-breaking/overlaps */
+  h1 {
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: clamp(0.75rem, 2.5vw, 1.25rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1.15rem, 4vw, 1.35rem) !important;
+    line-height: 1.35 !important;
+  }
+
+  /* 5. Force strict single-column grids on all smartphone layouts for content structures */
+  .grid, 
+  .grid-cols-2, 
+  .grid-cols-3, 
+  .grid-cols-4, 
+  .grid-cols-5, 
+  .grid-cols-6, 
+  [class*="grid-cols-"], 
+  [class*="sm:grid-cols-"],
+  [class*="md:grid-cols-"],
+  [class*="lg:grid-cols-"] {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  /* Exception for ultra-tight micro-grids such as color selectors or badges if necessary */
+  .micro-grid {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)) !important;
+  }
+
+  /* 6. Tighter layout margin rules with fluid units */
+  .mb-12, .mb-16, .mb-20, .mb-24 {
+    margin-bottom: clamp(1.5rem, 5vw, 2.75rem) !important;
+  }
+  
+  .mt-12, .mt-16, .mt-20, .mt-24 {
+    margin-top: clamp(1.5rem, 5vw, 2.75rem) !important;
+  }
+}
+
+
