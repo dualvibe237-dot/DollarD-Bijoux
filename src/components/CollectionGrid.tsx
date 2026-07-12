@@ -82,8 +82,7 @@ export default function CollectionGrid({ language, onAddToCart, openBookingWithP
       <motion.div 
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        animate="visible"
         style={{ perspective: 1200 }}
         className="max-w-7xl mx-auto px-6"
       >

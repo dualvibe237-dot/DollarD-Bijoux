@@ -57,6 +57,7 @@ export default function App() {
 
   // Programmatic dynamic updates of document Title and Meta Description for SEO
   useEffect(() => {
+    window.scrollTo(0, 0);
     const originUrl = typeof window !== 'undefined' ? window.location.origin : 'https://maisondollard.com';
     const metadata = generateMetadata({
       page: activeTab,
@@ -183,10 +184,10 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, filter: 'brightness(0)', y: 12 }}
-            animate={{ opacity: 1, filter: 'brightness(1)', y: 0 }}
-            exit={{ opacity: 0, filter: 'brightness(0)', y: -12 }}
-            transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
             className="relative"
           >
             {activeTab === 'home' && (
@@ -281,8 +282,7 @@ export default function App() {
               <motion.div
                 variants={sectionContainerVariants}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                animate="visible"
                 className="w-full"
               >
                 <AboutSection language={language} />
@@ -294,8 +294,7 @@ export default function App() {
               <motion.div
                 variants={sectionContainerVariants}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                animate="visible"
                 className="w-full"
               >
                 {/* Special Commissions Customizer Atelier */}
@@ -319,8 +318,7 @@ export default function App() {
               <motion.div
                 variants={sectionContainerVariants}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                animate="visible"
                 className="w-full"
               >
                 <JournalSection language={language} />
@@ -332,8 +330,7 @@ export default function App() {
               <motion.div
                 variants={sectionContainerVariants}
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                animate="visible"
                 className="w-full"
               >
                 {/* Private Service Scheduling & Secure Delivery FAQ */}

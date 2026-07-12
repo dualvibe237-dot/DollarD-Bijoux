@@ -127,8 +127,7 @@ export default function ServicesContact({ language, prefilledProduct, onClearPre
       <motion.div 
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        animate="visible"
         className="max-w-7xl mx-auto px-6 relative z-10"
       >
         

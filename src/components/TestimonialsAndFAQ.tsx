@@ -141,7 +141,7 @@ export default function TestimonialsAndFAQ({ language, category = 'home' }: Test
           }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           className="mb-24"
         >
           {/* Testimonials Header */}
@@ -208,7 +208,7 @@ export default function TestimonialsAndFAQ({ language, category = 'home' }: Test
           }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05 }}
           className="mb-24"
         >
           {/* FAQs Header */}
